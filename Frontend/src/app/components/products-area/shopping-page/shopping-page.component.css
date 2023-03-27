@@ -1,0 +1,13 @@
+main {
+    float: right;
+    width: 75%;
+}
+
+aside {
+    float: left;
+    width: 25%;
+    height: 450px;
+    overflow-y: auto;
+    height: 100%;
+}
+

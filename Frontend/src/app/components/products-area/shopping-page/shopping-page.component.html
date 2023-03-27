@@ -1,0 +1,14 @@
+<section>
+    <main>
+        <app-products></app-products>
+    </main>
+
+    <aside>
+        <ng-container *ngIf="userRole==='User'">
+            <app-cart></app-cart>
+        </ng-container>
+        <ng-container *ngIf="userRole==='Admin'">
+            <app-edit-product></app-edit-product>
+        </ng-container>
+    </aside>
+</section>

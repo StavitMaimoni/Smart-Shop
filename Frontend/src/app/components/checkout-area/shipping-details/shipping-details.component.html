@@ -1,0 +1,49 @@
+<section>
+        <h1>Order</h1>
+        <h3 class="shippingDetailsHeader">Shipping Details:</h3>
+    <h5>Double click on city and street if the shipping address is the same as the user's address</h5>
+
+    <ng-container *ngIf="popUpCard">
+        <div class="orderPopup">
+            <h2>Your order was submitted successfully!</h2>
+            <h3>To download your receipt click <a (click)="submitOrder('download')">Download PDF</a></h3>
+            <button class="closeButton" (click)="popUpCard=false; submitOrder('close')">Close</button>
+        </div>
+    </ng-container>
+
+    <form (ngSubmit)="send()" #orderForm="ngForm">
+        <label>City: </label>
+        <span class="formErr" *ngIf="cityBox.errors?.['required'] && cityBox.touched">Missing city</span>
+        <span class="formErr" *ngIf="cityBox.errors?.['minlength'] && cityBox.touched">City must exceed 2 chars</span>
+        <span class="formErr" *ngIf="cityBox.errors?.['maxlength'] && cityBox.touched">City must exceed 100 chars</span>
+        <input type="text" name="shipCity" [(ngModel)]="order.shipCity" #cityBox="ngModel" required minlength="2"
+            maxlength="100" (dblclick)="order.shipCity = cityName">
+
+        <label>Street: </label>
+        <span class="formErr" *ngIf="streetBox.errors?.['required'] && streetBox.touched">Missing street</span>
+        <span class="formErr" *ngIf="streetBox.errors?.['minlength'] && streetBox.touched">Street must exceed 2
+            chars</span>
+        <span class="formErr" *ngIf="streetBox.errors?.['maxlength'] && streetBox.touched">Street must exceed 100
+            chars</span>
+        <input type="text" name="shipStreet" [(ngModel)]="order.shipStreet" #streetBox="ngModel" required minlength="2"
+            maxlength="100" (dblclick)="order.shipStreet = user.street">
+
+
+        <label>Shipping Date: </label>
+        <span class="formErr" *ngIf="dateBox.errors?.['required'] && dateBox.touched">Missing shipping date</span>
+        <input type="date" name="shipDate" [(ngModel)]="order.shipDate" #dateBox="ngModel" required min={{minDate}}>
+
+        <label>Payments: </label>
+        <span class="formErr" *ngIf="creditCardBox.errors?.['required'] && creditCardBox.touched">Missing credit
+            card</span>
+        <span class="formErr" *ngIf="creditCardBox.errors?.['minlength'] && creditCardBox.touched">Credit card number
+            must be between 14-16 characters</span>
+        <span class="formErr" *ngIf="creditCardBox.errors?.['maxlength'] && creditCardBox.touched">Credit card number
+            must be between 14-16 characters</span>
+        <input type="text" name="creditCard" [(ngModel)]="order.creditCard" #creditCardBox="ngModel" required
+            minlength="16" maxlength="19" appCreditCard>
+
+        <button class="payButton">Pay Now</button>
+
+    </form>
+</section>

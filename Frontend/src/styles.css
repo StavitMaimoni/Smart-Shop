@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;
+    text-align: center;
+    color: rgb(20, 19, 19);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+input{
+    cursor: auto;
+    background:none;
+}
+
+.formErr {
+    color: red;
+}
+
+form>.ng-touched.ng-invalid {
+    background-color: pink;
+    border: 2px solid red;
+}
+
+.success {
+    padding: 20px;
+    background-color: green;
+    color: white !important;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    text-align: center;
+    z-index: 999;
+    font-size: 15px;
+}
+
+.error {
+    padding: 20px;
+    background-color: red;
+    color: white !important;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    text-align: center;
+    z-index: 999;
+    font-size: 15px;
+}
+
+.fade-out {
+    animation: fadeOut 30s linear;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+

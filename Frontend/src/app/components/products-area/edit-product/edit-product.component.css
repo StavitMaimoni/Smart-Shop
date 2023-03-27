@@ -1,0 +1,215 @@
+section {
+    z-index: 1;
+    background-color: white;
+    margin-top: 170px;
+    position: fixed;
+    height: 440px;
+    width: 300px;
+    overflow-x: hidden;
+    padding-bottom: 5px;
+    border: 2px solid rgb(242, 221, 206);
+    border-radius: 2%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.headerContainer {
+    padding: 2px;
+    background-color: rgb(242, 221, 206);
+    height: 70px;
+    margin-left: -100px;
+    color: black;
+}
+
+.header {
+    padding-top: 13px;
+    padding-left: 25px;
+    font-weight: bold;
+}
+
+.addProduct {
+    position: absolute;
+    left: 230px;
+    margin-top: -45px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: black;
+    background:rgb(242, 221, 206);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-weight: bold;
+    border: none;
+    padding: 5px;
+    border-radius: 16px;
+    width: 120px;
+}
+
+.addProduct:hover {
+    color: white;
+    background: rgb(237, 187, 154);
+}
+
+.body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    width: 250px;
+    height: 85px;
+    margin-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 35px;
+}
+
+.textDiv {
+    margin-left: 120px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 120px;
+    height: 110px;
+    margin-left: -13px;
+    position: absolute;
+}
+
+.deleteButton {
+    margin-left: 270px;
+    margin-top: 2px;
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.addButton {
+    position: relative;
+    left: 140px;
+    margin-top: 77px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: black;
+    background-color: rgb(242, 221, 206);
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 16px;
+    width: 150px;
+}
+
+.addButton:hover {
+    background: rgb(237, 187, 154);
+    color: white;
+}
+
+select {
+    background-color: white;
+    border: thin solid rgb(244, 213, 191);
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, white 50%),
+        linear-gradient(135deg, white 50%, transparent 50%),
+        linear-gradient(to right, rgb(244, 213, 191), rgb(244, 213, 191));
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        100% 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2.5em 2.5em;
+    background-repeat: no-repeat;
+}
+
+select:focus {
+    background-image:
+        linear-gradient(45deg, white 50%, transparent 50%),
+        linear-gradient(135deg, transparent 50%, white 50%),
+        linear-gradient(to right, gray, gray);
+    background-position:
+        calc(100% - 15px) 1em,
+        calc(100% - 20px) 1em,
+        100% 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2.5em 2.5em;
+    background-repeat: no-repeat;
+    border-color: grey;
+    outline: 0;
+}
+
+input {
+    padding: 5px;
+    width: 95%;
+    font-size: 17px;
+    border: 1px solid #aaaaaa;
+    margin-top: 25px;
+}
+
+label {
+    font-size: 13px;
+}
+
+.nameLabel {
+    position: absolute;
+    top: 145px;
+    left: 100px;
+
+}
+
+.priceLabel {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+}
+
+.imageLabel {
+    position: absolute;
+    top: 7px;
+    left: 90px;
+}
+
+span{
+    color: red;
+    font-size: 12px;
+}
+.nameErr{
+    position: absolute;
+    top: 135px;
+    left: 10px;
+}
+.categoryErr{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+}
+.PriceErr{
+    position: absolute;
+    top: 190px;
+    left: 10px;
+}

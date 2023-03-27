@@ -1,0 +1,34 @@
+<section>
+    <div class="box">
+        <div class="header">
+            <h2>Welcome back!</h2>
+            <p>Not a member yet? <a (click)="registerNavigate()">Create an account</a></p>
+        </div>
+
+        <form (ngSubmit)="send()">
+
+            <label>Username: </label>
+            <span class="formErr" *ngIf="username.errors?.['required'] && username.touched">Missing username</span>
+            <span class="formErr" *ngIf="username.errors?.['minlength'] && username.touched">Email too short</span>
+            <span class="formErr" *ngIf="username.errors?.['maxlength'] && username.touched">Email too long</span>
+            <input type="email" name="username" [(ngModel)]="credentials.username" #username="ngModel" required
+                minlength="6" maxlength="255" placeholder="Email">
+
+            <label>Password: </label>
+            <span class="formErr" *ngIf="password.errors?.['required'] && password.touched">Missing password</span>
+            <span class="formErr" *ngIf="password.errors?.['minlength'] && password.touched">Password should be between
+                4-20
+                characters</span>
+            <span class="formErr" *ngIf="password.errors?.['maxlength'] && password.touched">Password should be between
+                4-20
+                characters</span>
+            <input type="password" name="password" [(ngModel)]="credentials.password" #password="ngModel" required
+                minlength="4" maxlength="20" placeholder="Password">
+
+            <img src="assets/images/bunny-with-butterfly.jpg">
+
+            <button>Sign in</button>
+
+        </form>
+    </div>
+</section>

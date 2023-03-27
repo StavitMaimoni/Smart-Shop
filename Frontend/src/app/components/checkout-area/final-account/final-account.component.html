@@ -1,0 +1,58 @@
+<section>
+    <div>
+        <input type="text" placeholder="Search product" #searchBox (keyup)="search(searchBox.value)">
+        <button routerLink="/shop">Continue to Sopping</button>
+    </div>
+
+    <div class="paypal">
+
+        <div class="paypal__header">
+            <div class="paypal__logo-wrapper">
+                <img src="https://i.ibb.co/DrvmW5y/paypal.png" alt="Paypal" class="paypal__logo">
+            </div>
+
+            <div class="paypal__header-info">
+                <span class="paypal__date">{{today}}</span>
+            </div>
+        </div>
+
+        <div class="paypal__subheader-wrapper">
+            <div class="paypal__subheader">
+                <h1 class="paypal__username">Invoice</h1>
+            </div>
+        </div>
+
+        <div class="paypal__cart">
+            <h2 class="paypal__cart-title">Cart:</h2>
+
+            <table>
+                <tr class="paypal__cart-list" *ngFor="let p of userCart">
+                    <td class="paypal__cart-item">
+                        <span class="paypal__item-name">
+                            <span class="paypal__index">{{p.quantity}} X</span>
+                            <ng-container *ngIf="searchClick===true">
+                                <span [innerHTML]="p.highlightedName"></span>
+                            </ng-container>
+                            <ng-container *ngIf="searchClick===false">
+                                <span>{{p.name}} </span>
+                            </ng-container>
+                        </span>
+                        <span class="paypal__item-price">{{p.price*p.quantity| currency:'ILS'}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="paypal__cart-item">
+                        <span class="paypal__cart-total">Total</span>
+                        <span class="paypal__item-price">{{total | currency:'ILS'}}</span>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="paypal__footer">
+            <img src="https://i.ibb.co/c8CQvBq/barcode.png" alt="Paypal Barcode" class="paypal__barcode">
+        </div>
+    </div>
+
+</section>

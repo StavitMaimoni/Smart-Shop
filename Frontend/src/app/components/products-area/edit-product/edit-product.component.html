@@ -1,0 +1,56 @@
+<section>
+    <div>
+        <div class="headerContainer">
+            <ng-container *ngIf="editClick">
+                <h3 class="header">Edit Product</h3>
+                <h4 class="addProduct" (click)="toggleEdit()">Add Product </h4>
+            </ng-container>
+            <ng-container *ngIf="!editClick">
+                <h3 class="header">Add Product</h3>
+            </ng-container>
+        </div>
+        <div class="body">
+            <form #editForm="ngForm">
+                <label>Category: </label>
+                <span class="categoryErr" *ngIf="category.errors?.['required'] && category.touched">Missing
+                    category</span>
+                <select [(ngModel)]="product.categoryId" name="categoryId" #category="ngModel" required>
+                    <option selected disabled value="">Select Category</option>
+                    <option *ngFor="let c of categories" [value]="c._id">{{c.name}}</option>
+                </select>
+
+                <label class="nameLabel">Product name:</label>
+                <span class="nameErr" *ngIf="nameBox.errors?.['required'] && nameBox.touched">Missing product
+                    name</span>
+                <span class="nameErr" *ngIf="nameBox.errors?.['minlength'] && nameBox.touched">Product name too
+                    short</span>
+                <span class="nameErr" *ngIf="nameBox.errors?.['maxlength'] && nameBox.touched">Product name too
+                    long</span>
+                <input type="text" name="shipName" [(ngModel)]="product.name" #nameBox="ngModel" required minlength="2"
+                    maxlength="60">
+
+                <label class="priceLabel">Product Price: </label>
+                <span class="PriceErr" *ngIf="priceBox.errors?.['required'] && priceBox.touched">Missing product
+                    price</span>
+                <span class="PriceErr" *ngIf="priceBox.errors?.['min'] && priceBox.touched">Price needs to be grater
+                    than 0</span>
+                <input type="number" name="shipPrice" [(ngModel)]="product.price" #priceBox="ngModel" required min="1">
+
+                <div class="image-container">
+                    <label class="imageLabel">Product Image: </label>
+                    <input type="file" name="image" (change)="onselectFile($event)" accept="image/*" required>
+                    <ng-container *ngIf="url">
+                        <img [src]="url" class="preloadImg">
+                    </ng-container>
+                </div>
+                <ng-container *ngIf="editClick">
+                    <button class="addButton" (click)="send('Edit')">Edit</button>
+                </ng-container>
+                <ng-container *ngIf="!editClick">
+                    <button class="addButton" (click)="send('Add')">Add</button>
+                </ng-container>
+
+            </form>
+        </div>
+    </div>
+</section>

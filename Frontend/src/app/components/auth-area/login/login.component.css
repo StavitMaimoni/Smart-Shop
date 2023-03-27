@@ -1,0 +1,77 @@
+section {
+    position: relative;
+    height: 150vh;
+}
+
+.box {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header {
+    position: absolute;
+    top: calc(20% - 12em);
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #bac32e;
+    cursor: pointer;
+}
+
+button {
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(244, 213, 191);
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 17px;
+    width: 170px;
+    margin-top: 180px;
+    margin-left: -170px;
+}
+
+button:hover {
+    background: rgb(237, 187, 154);
+}
+
+form {
+    padding: 10px;
+    max-width: 1000px;
+    min-width: 350px;
+    height: 360px;
+    border: 0.5px solid rgb(65, 63, 63);
+    border-radius: 5%;
+    background-color: white;
+}
+
+input {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid #aaaaaa;
+    cursor: auto;
+}
+
+label {
+    font-size: 15px;
+}
+
+img {
+    width: 170px;
+    height: 170px;
+    float: left;
+    z-index: -1;
+    margin-top: -5px;
+}

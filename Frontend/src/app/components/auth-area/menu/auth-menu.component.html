@@ -1,0 +1,51 @@
+<section>
+    <div class="navbar">
+        <ng-container *ngIf="user?.role==='User'">
+            <span class="material-icons cart" [class.active]="cartClicked && totalQuantity >0" (click)="toggleCart()">
+                shopping_cart
+            </span>
+            <span *ngIf="token" class="totalQuantity">{{ totalQuantity}}</span>
+            <span *ngIf="token" class="totalPrice">{{ totalPrice| currency:'ILS'}}</span>
+        </ng-container>
+        <div class="logoContainer">
+            <span class="logo">Smart Shop</span>
+        </div>
+        <div class="right">
+            <ul *ngIf="token">
+                <li>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                    <span>{{user.firstName}} {{user.lastName}}</span>
+                    <a routerLink="/login" (click)="logout() ;scrollTop()" class="signUp">
+                        Sign out
+                    </a>
+                    <a routerLink="/home" (click)="scrollTop()" class="signIn">
+                        Home
+                    </a>
+                </li>
+            </ul>
+            <ul *ngIf="!token">
+                <li>
+                    <a routerLink="/login" (click)="scrollTop()" class="signIn">
+                        Sign in
+                    </a>
+                    <a routerLink="/about" (click)="scrollTop()" class="signIn">
+                        About
+                    </a>
+                    <a routerLink="/contact" (click)="scrollTop()" class="signIn">
+                        Contact
+                    </a>
+                    <a routerLink="/home" (click)="scrollTop()" class="signIn">
+                        Home
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alertDiv" *ngIf="alertMessage"
+        [ngClass]="{ 'success': alertType === 'success', 'error': alertType === 'error' }">
+        {{ alertMessage }}
+    </div>
+</section>

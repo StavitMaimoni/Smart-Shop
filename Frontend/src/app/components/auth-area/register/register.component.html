@@ -1,0 +1,106 @@
+<section>
+    <div class="container">
+        <div class="header">
+            <h2>Sign up</h2>
+            <p>Already have an account? <a (click)="loginNavigate()">Login</a></p>
+        </div>
+
+        <form (ngSubmit)="send()" #registerForm="ngForm">
+            <div *ngIf="step === 1">
+                <label>Identity-Card: </label>
+                <span class="formErr" *ngIf="identityCard.errors?.['required'] && identityCard.touched">Missing identity
+                    card</span>
+                <span class="formErr" *ngIf="identityCard.errors?.['min'] && identityCard.touched">Identity card must
+                    contain 9 digits</span>
+                <span class="formErr" *ngIf="identityCard.errors?.['max'] && identityCard.touched">Identity card must
+                    contain 9 digits</span>
+                <input type="number" name="identityCard" [(ngModel)]="user.identityCard" #identityCard="ngModel"
+                    required min=100000000 max=999999999 placeholder="Identity card">
+
+                <label>Username: </label>
+                <span class="formErr" *ngIf="username.errors?.['required'] && username.touched">Missing username</span>
+                <span class="formErr" *ngIf="username.errors?.['minlength'] && username.touched">Email too short</span>
+                <span class="formErr" *ngIf="username.errors?.['maxlength'] && username.touched">Email too long</span>
+                <input type="email" name="username" [(ngModel)]="user.username" #username="ngModel" required
+                    minlength="6" maxlength="255" placeholder="Email">
+
+                <label>Password: </label>
+                <span class="formErr" *ngIf="password.errors?.['required'] && password.touched">Missing password</span>
+                <span class="formErr" *ngIf="password.errors?.['minlength'] && password.touched">Password should be
+                    between
+                    4-20 characters</span>
+                <span class="formErr" *ngIf="password.errors?.['maxlength'] && password.touched">Password should be
+                    between
+                    4-20 characters</span>
+                <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required
+                    minlength="4" maxlength="20" placeholder="Password">
+
+                <label>Password Confirm: </label>
+                <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required minlength="4"
+                    maxlength="20" placeholder="Confirm your password">
+            </div>
+
+            <div *ngIf="step === 2">
+                <label>First name: </label>
+                <span class="formErr" *ngIf="firstName.errors?.['required'] && firstName.touched">Missing first
+                    name</span>
+                <span class="formErr" *ngIf="firstName.errors?.['minlength'] && firstName.touched">First name should be
+                    between
+                    2-30 characters</span>
+                <span class="formErr" *ngIf="firstName.errors?.['maxlength'] && firstName.touched">First name should be
+                    between
+                    2-30 characters</span>
+                <input type="text" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel" required
+                    minlength="2" maxlength="30">
+
+                <label>Last name: </label>
+                <span class="formErr" *ngIf="lastName.errors?.['required'] && lastName.touched">Missing last name</span>
+                <span class="formErr" *ngIf="lastName.errors?.['minlength'] && lastName.touched">Last name should be
+                    between
+                    2-30 characters</span>
+                <span class="formErr" *ngIf="lastName.errors?.['maxlength'] && lastName.touched">Last name should be
+                    between
+                    2-30 characters</span>
+                <input type="text" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" required
+                    minlength="2" maxlength="30">
+                <br><br>
+
+                <label>City:</label>
+                <span class="formErr" *ngIf="city.errors?.['required'] && city.touched">Missing city</span>
+                <select [(ngModel)]="user.cityId" name="cityId" #city="ngModel" required>
+                    <option selected disabled value="">Select City</option>
+                    <option *ngFor="let c of cities" [value]="c._id">{{c.name}}</option>
+                </select>
+
+                <br><br>
+
+                <label>Street: </label>
+                <span class="formErr" *ngIf="street.errors?.['required'] && street.touched">Missing street</span>
+                <span class="formErr" *ngIf="street.errors?.['minlength'] && street.touched">Street should be between
+                    2-50
+                    characters</span>
+                <span class="formErr" *ngIf="street.errors?.['maxlength'] && street.touched">Street should be between
+                    2-50
+                    characters</span>
+                <input type="text" name="street" [(ngModel)]="user.street" #street="ngModel" required minlength="2"
+                    maxlength="50">
+            </div>
+            <br><br>
+
+            <div class="buttonsContainer">
+                <div class="buttons">
+                    <button type="button" class="prevBtn" (click)="step=1">Previous</button>
+                    <ng-container *ngIf="step===1"> <button type="button" class="nextBtn"
+                            (click)="clickButton('Next')">Next</button>
+                    </ng-container>
+                    <ng-container *ngIf="step===2">
+                        <button type="button" (click)="clickButton('CreateAnAccount')" class="nextBtn">Create an
+                            account</button>
+                    </ng-container>
+                </div>
+            </div>
+            <img src="assets/images/happy-cute-furry-bunny.jpg">
+
+        </form>
+    </div>
+</section>

@@ -1,0 +1,369 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+.category-scroll-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+}
+
+.category-scroll-arrows {
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+}
+
+.arrowLeft {
+    left: -2%;
+}
+
+.arrowRight {
+    right: 2%;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    position: relative;
+    grid-gap: 1rem;
+    margin-right: 80px;
+}
+
+section {
+    padding-top: 120px;
+    position: relative;
+}
+
+.searchInput {
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    background: #fff;
+    line-height: 40px;
+    font-size: 18px;
+    box-shadow: 0px 0px 3px #111;
+    overflow: hidden;
+    padding-right: 10px;
+    z-index: 1;
+    cursor: auto;
+    top: 20px;
+    position: fixed;
+    margin-left: -250px;
+    width: 20vw;
+}
+
+.searchDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 100,
+        'opsz' 48;
+    color: rgb(58, 57, 57);
+    z-index: 1;
+}
+
+.categoryContainer {
+    --spacer: 1rem;
+    display: grid;
+    gap: var(--spacer);
+    grid-auto-flow: column;
+    grid-auto-columns: 12.5%;
+    grid-template-rows: min-content;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top: 0.5px solid var(--surface-2);
+    border-bottom: 0.5px solid var(--surface-2);
+    border-right: 0.5px solid var(--surface-2);
+    width: 100vw;
+}
+
+.snapsInline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--spacer);
+}
+
+.snapsInline>* {
+    scroll-snap-align: start;
+}
+
+.category:hover:not(.active),
+.category:active:not(.active) {
+    color: #ffc220;
+    cursor: pointer;
+}
+
+.category {
+    padding: 0 var(--spacer);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-20);
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--spacer);
+    margin-bottom: -20px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.scroll-category {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-category::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa;
+}
+
+.scroll-category::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+.active {
+    color: #ffc220;
+    cursor: pointer;
+}
+
+.category:hover:not(.active),
+.category:active:not(.active) {
+    color: #ffc220;
+    cursor: pointer;
+}
+
+img {
+    width: 130px;
+    height: 110px;
+    margin-top: -15px;
+}
+
+.card {
+    width: 150px;
+    height: 250px;
+    background-color: rgba(212, 214, 214, 0.1);
+    box-shadow: 2px 4px rgba(140, 140, 141, 0.549);
+    overflow: hidden;
+    position: relative;
+    top: 20px;
+    margin: 15px;
+    background-color: white;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .3s ease;
+    transform: scale(1.1);
+}
+
+.productName {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.productImage {
+    position: absolute;
+    top: 70px;
+    margin-left: 15px;
+}
+
+.productPrice {
+    position: absolute;
+    top: 165px;
+    margin-left: 55px;
+}
+
+.addToCartButton {
+    margin-top: 200px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(244, 213, 191);
+    font-weight: bold;
+    border: none;
+    padding: 8px;
+    border-radius: 16px;
+    width: 100px;
+}
+
+.addToCartButton:hover {
+    background: rgb(237, 187, 154);
+}
+
+.editButton {
+    margin-top: 200px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(244, 213, 191);
+    font-weight: bold;
+    border: none;
+    padding: 8px;
+    border-radius: 16px;
+    width: 100px;
+}
+
+.editButton:hover {
+    background: rgb(237, 187, 154);
+}
+
+.popUpContainer {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+.popUpContainer:target {
+    visibility: visible;
+    display: block;
+}
+
+input,
+textarea {
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.inputGroup {
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 370px;
+    height: 250px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 10;
+    border-radius: 5%;
+    animation: popUp 0.3s linear;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.inputGroup input[type='button'] {
+    background-color: rgb(244, 213, 191);
+    min-width: 38px;
+    width: auto;
+    transition: all 300ms ease;
+}
+
+.inputGroup .buttonMinus,
+.inputGroup .buttonPlus {
+    font-weight: bolder;
+    font-size: 20px;
+    height: 38px;
+    padding: 0;
+    width: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.inputGroup img {
+    margin-left: 100px;
+    padding-top: 10px;
+}
+
+.inputGroup .quantityField {
+    position: relative;
+    height: 38px;
+    left: -6px;
+    text-align: center;
+    width: 62px;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 0 5px;
+    resize: vertical;
+}
+
+.quantityField {
+    background-color: white;
+}
+
+.buttonPlus {
+    left: -13px;
+}
+
+.closeButton {
+    background-color: white;
+    margin-top: -190px;
+    margin-left: 70px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.namePopUp {
+    padding-bottom: 7px;
+}
+
+.sorry {
+    font-size: 30px;
+    margin-top: 50px;
+    margin-left: -20px;
+    color: rgb(59, 57, 57);
+}
+
+.editContainer {
+    z-index: 999;
+    margin-top: 70px;
+    margin-left: 0px;
+    position: absolute;
+    height: 400px;
+    width: 290px;
+    overflow-x: hidden;
+    padding-bottom: 5px;
+    border: 2px solid rgb(242, 221, 206);
+    border-radius: 2%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.bodyCart {
+    overflow-y: auto;
+    height: 100%;
+}

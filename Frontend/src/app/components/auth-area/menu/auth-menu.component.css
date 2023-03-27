@@ -1,0 +1,126 @@
+.right {
+    grid-column: 4;
+    margin-right: 50px;
+}
+
+.logoContainer {
+    grid-column: 1;
+    margin-left: 7vw;
+}
+
+* {
+    color: black;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 25px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(242, 221, 206);
+    box-shadow: 0 4px 10px rgba(0.5, 0.5, 0.5, 0.5);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li:first-child {
+    font-size: 15px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
+    font-size: 15px;
+    color: black;
+    padding-right: 7px;
+    padding-left: 45px;
+}
+
+.logo {
+    font-family: Lucida Console;
+    font-weight: 600;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px white,
+        1px 2px 0px black,
+        1px 3px 0px white,
+        1px 4px 0px black,
+        1px 5px 0px black,
+        1px 6px 0px black,
+        1px 10px 5px rgba(16, 16, 16, 0.5),
+        1px 15px 10px rgba(16, 16, 16, 0.4),
+        1px 20px 30px rgba(16, 16, 16, 0.3),
+        1px 25px 50px rgba(16, 16, 16, 0.2);
+    font-size: 3vw;
+    white-space: nowrap;
+}
+
+.cart {
+    position: absolute;
+    left: 48px;
+    top: 30px;
+}
+
+.totalQuantity {
+    display: block;
+    position: absolute;
+    top: 17px;
+    left: 60px;
+    background-color: #ffc220;
+    color: black;
+    border: 0.5px solid red;
+    border-radius: 50%;
+    width: 15px;
+    height: 17px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.totalPrice {
+    display: block;
+    position: absolute;
+    top: 52px;
+    left: 40px;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    padding-left: 40px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active {
+    color: white;
+    cursor: pointer;
+}
+
+.material-icons:hover:not(.active),
+.material-icons:active:not(.active) {
+    color: white;
+    cursor: pointer;
+}
+
+.signIn:hover:not(.active),
+.signIn:active:not(.active) {
+    color: white;
+}
+
+.signUp:hover:not(.active),
+.signUp:active:not(.active) {
+    color: white;
+}

@@ -1,0 +1,60 @@
+<ng-container *ngIf="userRole==='User'">
+    <div class="adContainer" *ngIf="!cartClicked">
+        <h4 class="advertisement">ADVERTISEMENT</h4>
+        <p class="adHeader">Wake up without coffee <br>is like sleep</p>
+        <p class="adHeader"></p>
+        <div class="container">
+            <div class="coffee-header">
+                <div class="coffee-header__buttons coffee-header__button-one"></div>
+                <div class="coffee-header__buttons coffee-header__button-two"></div>
+                <div class="coffee-header__display"></div>
+                <div class="coffee-header__details"></div>
+            </div>
+            <div class="coffee-medium">
+                <div class="coffe-medium__exit"></div>
+                <div class="coffee-medium__arm"></div>
+                <div class="coffee-medium__liquid"></div>
+                <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+                <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+                <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+                <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+                <div class="coffee-medium__cup"></div>
+            </div>
+            <div class="coffee-footer"></div>
+        </div>
+    </div>
+</ng-container>
+
+<div *ngIf="cartClicked && products.length>0" (click)="toggleCart()">
+    <img class="cartImage" src="assets/images/shopping-cart.png">
+</div>
+
+<section *ngIf="cartClicked && products.length>0">
+    <div>
+        <p class="emptyCart" (click)="emptyCart()">Empty Cart <span class="material-symbols-outlined">
+                remove_shopping_cart
+            </span></p>
+        <div class="header">
+            <h3>Shopping Cart</h3>
+        </div>
+        <div class="bodyCart">
+            <div class="item" *ngFor="let p of products">
+                <div>
+                    <img class="itemImg" src={{imgRoute+p.imageName}}>
+                </div>
+                <div class="textDiv">
+                    <div>{{p.name}}</div>
+                    <div><b>Price</b>:{{p.price| currency:'ILS'}}</div>
+                    <div><b>Quantity</b>:{{p.quantity}}</div>
+                </div>
+                <button class="deleteButton" (click)="deleteProduct(p._id)"><span class="material-symbols-outlined">
+                        delete_forever
+                    </span></button>
+            </div>
+        </div>
+        <div class="bottomContainer">
+            <h4><b>Total price:</b>{{totalPrice | currency:'ILS'}}</h4>
+            <button class="checkoutButton" (click)="checkout()">Checkout</button>
+        </div>
+    </div>
+</section>

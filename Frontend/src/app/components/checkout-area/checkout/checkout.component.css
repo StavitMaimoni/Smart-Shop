@@ -1,0 +1,17 @@
+main {
+    float: right;
+    width: 55%;
+}
+
+aside {
+    float: left;
+    width: 45%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+aside,
+main {
+    margin-top: 130px;
+    margin-bottom: 250px;
+}

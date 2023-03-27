@@ -1,0 +1,43 @@
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a routerLink="/home" (click)="scrollTop()"> <i class="fas fa-arrow-right"></i> home</a>
+            <a routerLink="/shop" (click)="scrollTop()"><i class="fas fa-arrow-right"></i> shop</a>
+            <ng-container *ngIf="user">
+                <a routerLink="/checkout" (click)="scrollTop()"> <i class="fas fa-arrow-right"></i> my order </a>
+            </ng-container>
+            <a routerLink="/about" (click)="scrollTop()"> <i class="fas fa-arrow-right"></i> about</a>
+            <a routerLink="/contact" (click)="scrollTop()"> <i class="fas fa-arrow-right"></i> contact</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="https://he-il.facebook.com/"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="https://twitter.com/"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="https://www.instagram.com/"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="https://www.linkedin.com/feed/"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="https://www.pinterest.com/"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+        <div class="box">
+            <h3>Our branches</h3>
+            <a class="branches"> <i class="fab fa-facebook-f"></i>Tel Aviv</a>
+            <a class="branches"> <i class="fab fa-twitter"></i>Rishon Letzion</a>
+            <a class="branches"> <i class="fab fa-instagram"></i>Yehud</a>
+            <a class="branches"> <i class="fab fa-linkedin"></i>Beer Sheva</a>
+            <a class="branches"> <i class="fab fa-pinterest"></i>Haifa</a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="enter your email" minlength="6" maxlength="255" [(ngModel)]="userEmail">
+            <button (click)="subscribe()" class="btn">subscribe</button>
+        </div>
+    </div>
+    <section class="credit">Created by Stavit Maimoni Full stack developer <br> <br> All rights
+        reserved ©</section>
+</section>

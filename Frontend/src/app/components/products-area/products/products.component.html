@@ -1,0 +1,80 @@
+<section>
+    <div>
+        <div class="searchDiv">
+            <input class="searchInput" type="text" #searchBox (keyup)="search(searchBox.value)"
+                placeholder="Search here" />
+        </div>
+
+        <div class="category-scroll-container">
+            <div class="category-scroll-arrows arrowRight">
+                <span class="material-symbols-outlined" (click)="rightScroll()">
+                    arrow_forward_ios
+                </span>
+            </div>
+
+            <div class="categoryContainer snapsInline">
+                <span class="category" [class.active]="!activeCategoryId" (click)="displayAllProducts()">All
+                    products</span>
+                <ng-container *ngFor="let c of categories">
+                    <span class="category" [class.active]="activeCategoryId === c._id"
+                        (click)="displayProductsByCategory(c._id)">{{c.name}}</span>
+                </ng-container>
+            </div>
+            <div class="category-scroll-arrows arrowLeft">
+                <span class="material-symbols-outlined" (click)="leftScroll()">
+                    arrow_back_ios
+                </span>
+            </div>
+            <div class="borderBottom"></div>
+        </div>
+
+        <ng-container *ngIf="NoResult">
+            <p class="sorry">Sorry no product found</p>
+        </ng-container>
+
+        <div class="cardContainer" *ngIf="!categoryClicked">
+            <div class="card" *ngFor="let p of filterProducts">
+                <div class="productName">{{p.name}}</div>
+                <div class="productImage"><img src={{imgRoute+p.imageName}}> </div>
+                <div class="productPrice">{{p.price | currency:'ILS'}}</div>
+                <ng-container *ngIf="userRole==='User'">
+                    <button class="addToCartButton" (click)="addToCart(p); toggleCart(p.quantity)">Add to Cart</button>
+                </ng-container>
+                <ng-container *ngIf="userRole==='User'">
+                    <button class="addToCartButton" (click)="addToCart(p); toggleCart(p.quantity)">Add to Cart</button>
+                </ng-container>
+                <ng-container *ngIf="userRole==='Admin'">
+                    <button class="editButton" (click)="editProduct(p); toggleEdit()">Edit</button>
+                </ng-container>
+
+            </div>
+        </div>
+        <ng-container *ngIf="popUpCard" class="popUpContainer">
+            <div class="inputGroup">
+                <div class="namePopUp">{{selectedProduct.name}}</div>
+                <div><img src={{imgRoute+selectedProduct.imageName}}> </div>
+                <div>{{selectedProduct.price | currency:'ILS'}}</div>
+                <h4>Choose product quantity:</h4>
+                <input type="button" value="-" class="buttonMinus" (click)="decrementItem(selectedProduct)"
+                    data-field="quantity">
+                <input type="number" readonly step="1" [value]="selectedProduct.quantity" name="quantity"
+                    class="quantityField">
+                <input type="button" value="+" class="buttonPlus" (click)="incrementItem(selectedProduct)"
+                    data-field="quantity">
+                <span class="material-symbols-outlined closeButton" (click)="popUpCard=false">
+                    close
+                </span> 
+            </div>
+        </ng-container>
+
+        <div class="cardContainer" *ngIf="categoryClicked">
+            <div class="card" *ngFor="let p of filterProducts">
+                <div class="productName">{{p.name}}</div>
+                <div class="productImage"><img src={{imgRoute+p.imageName}}> </div>
+                <div class="productPrice">{{p.price | currency:'ILS'}}</div>
+                <button class="addToCartButton" (click)="addToCart(p)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+</section>
